@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NSwag.CodeGeneration.TypeScript" Version="13.10.5" />
+    <PackageReference Include="NSwag.MSBuild" Version="13.10.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.0.7" />
+  </ItemGroup>
+
+	<Target Name="NSwag">
+		<Exec Command="$(NSwagExe) run nswag.json" />
+	</Target>
+
+	<Target Name="NSwag_CSharp">
+		<Exec Command="$(NSwagExe) run nswag_csharp.json" />
+	</Target>
+
+</Project>
